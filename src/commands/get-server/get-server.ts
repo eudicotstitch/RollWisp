@@ -1,11 +1,12 @@
 import { CommandInteraction, SlashCommandBuilder } from "discord.js";
-import { ICommand } from "../interface/ICommand";
+import CommandNames from "../../enums/command-names";
+import { Command } from "../../commands/interface/command";
 
-const getServerInfoCommand: ICommand = {
+export const getServerInfoCommand: Command = {
   data: new SlashCommandBuilder()
-    .setName("server")
+    .setName(CommandNames.GetServer)
     .setDescription("Get server info"),
-  action: async (interaction: CommandInteraction) => {
+  execute: async (interaction: CommandInteraction) => {
     const guild = interaction.guild;
     if (guild) {
       await interaction.reply(

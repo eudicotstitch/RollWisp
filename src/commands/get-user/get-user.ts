@@ -1,11 +1,12 @@
 import { CommandInteraction, SlashCommandBuilder } from "discord.js";
-import { ICommand } from "../interface/ICommand";
+import CommandNames from "src/enums/command-names";
+import { Command } from "src/commands/interface/command";
 
-const getUserInfoCommand: ICommand = {
+export const getUserInfoCommand: Command = {
   data: new SlashCommandBuilder()
-    .setName("user")
+    .setName(CommandNames.GetUser)
     .setDescription("Get user info"),
-  action: async (interaction: CommandInteraction) => {
+  execute: async (interaction: CommandInteraction) => {
     const user = interaction.user;
     if (user) {
       await interaction.reply(`Username: ${user.username}\nID: ${user.id}`);
@@ -14,5 +15,3 @@ const getUserInfoCommand: ICommand = {
     }
   },
 };
-
-export default getUserInfoCommand;

@@ -9,20 +9,13 @@
       "detail": "compile files"
     },
     {
-      "type": "npm",
-      "script": "clean",
-      "problemMatcher": [],
-      "label": "npm: clean",
-      "detail": "remove built files"
-    },
-    {
       "label": "build",
       "group": {
         "kind": "build",
         "isDefault": true
       },
       "dependsOrder": "sequence",
-      "dependsOn": ["npm: clean", "npm: build"]
+      "dependsOn": ["npm: build"]
     }
   ]
 }

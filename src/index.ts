@@ -1,10 +1,11 @@
-import "dotenv/config";
-import { Client, Events, GatewayIntentBits } from "discord.js";
+import { Commander } from "./commander/commander";
+import { Server } from "./server";
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const main = async () => {
+  const commander = new Commander();
+  const server = new Server(commander);
 
-client.once(Events.ClientReady, (readyClient) => {
-  console.log(`${readyClient.user.username} is online!`);
-});
+  await server.init();
+};
 
-client.login(process.env.DISCORD_BOT_TOKEN);
+main();
