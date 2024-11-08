@@ -1,3 +1,4 @@
+import exp from "constants";
 import { Commander } from "./commander/commander";
 import { Server } from "./server";
 
@@ -8,4 +9,4 @@ const main = async () => {
   await server.init();
 };
 
-main();
+export default main();
